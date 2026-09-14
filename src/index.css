@@ -1,0 +1,34 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden; /* Verhindert horizontales Scrollen */
+}
+
+:root {
+  
+  --color-primary:#E6CDF5;
+  --color-secondary: #A078F0;
+ 
+  --color-text: #fff;
+  --color-background: #333;
+  
+}
+
+body{
+  background-color: var(--color-background);
+  color: var(--color-text);
+}
+
+
+.app-container {
+    min-height: calc(100vh - 120px);
+    display: flex;
+    flex-direction: column;
+}

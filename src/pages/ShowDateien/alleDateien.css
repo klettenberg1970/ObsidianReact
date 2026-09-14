@@ -1,0 +1,63 @@
+/* 1. ZUERST: Standard (Flexbox) */
+
+.dateien-container {
+    margin: 5rem 1rem 1rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;   /* ← Vertikal zentrieren */
+    align-items: center;       /* ← Horizontal zentrieren */
+    gap: 1rem;
+}
+
+.dateien-card,
+.single-dateien {
+    background-color: var(--color-secondary);
+    border: 2px solid white;
+    border-radius: 5px;
+    box-shadow: inset -1px -1px 5px 3px rgba(0, 0, 0, 0.2);
+    width: 40%;
+}
+
+/* 2. Andere Standard-Regeln */
+.dateien-container button {
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--color-primary);
+    color: var(--color-background);
+    border: 1px solid white;
+    border-radius: 2px;
+    overflow-wrap: break-word;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+.titel {
+    padding: 1rem;
+    background-color: var(--color-secondary);
+    color: white;
+}
+
+.titel p {
+    text-align: center;
+}
+
+.md-dateien,
+.single-dateien {
+    background-color: var(--color-secondary);
+}
+
+/* 3. ZULETZT: Media Query (überschreibt Standard) */
+@media (min-width: 800px) {
+    .dateien-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        align-items: stretch;
+        gap: 1rem;
+        margin-top: 5rem;
+    }
+    
+    .dateien-card,
+    .single-dateien {
+        width: 100%;
+    }
+}

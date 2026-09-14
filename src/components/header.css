@@ -1,0 +1,14 @@
+
+.header {
+    
+    margin: 2rem;
+    padding: 1rem;
+    border: 3px solid var(--color-secondary);
+    border-radius: 5px;
+   
+}
+
+.header h1{
+    text-align: center;
+}
+
