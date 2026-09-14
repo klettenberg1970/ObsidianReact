@@ -50,17 +50,16 @@ export default function Start() {
   }
 
 
-  const handleCreateNewMd = async (name, text) => {
+ const handleCreateNewMd = async (name, text) => {
     const id = await ordnerId('Unsortiert');
     const obsidianObjekt = new Obsidian();
-    const data = await obsidianObjekt.createNewMdDatei(id, name, text)
+    const data = await obsidianObjekt.createNewMdDatei(id, name, text);
 
-    if (data.message) {
-      SetErfolgsmeldung(true)
+    if (data?.message) {
+        SetErfolgsmeldung(true);
+        setTimeout(() => handleCloseMdDatei(), 3000); 
     }
-
-  }
-
+};
 
   const handleAktualisierung = async (text, id) => {
     console.log(text);

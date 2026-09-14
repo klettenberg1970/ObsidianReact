@@ -62,9 +62,13 @@ button.neuButton {
 }
 
 
-.loading-container{
-    margin:5rem 1rem 1rem 1rem;
+.loading-container {
+    /* oben: 10rem | rechts: auto | unten: 0 | links: auto */
+    margin: 5rem auto 0 auto; 
+    
     background-color: white;
+    width: 50%;
+    border-radius: 20px;
 }
 
 .loading-container h3{
