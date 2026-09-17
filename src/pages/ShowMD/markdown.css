@@ -20,8 +20,7 @@
   background-color: white;
   color: blue;
   text-decoration: underline;
-  border: 1px solid black;
-  border-radius: 5px;
+
 }
 
 .markdown a:hover {
