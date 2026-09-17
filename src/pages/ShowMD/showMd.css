@@ -1,7 +1,7 @@
 .markdown-container {
     position: fixed;
-   top:0.1rem;
-   bottom: 0.1rem;
+    top: 0.1rem;
+    bottom: 0.1rem;
     /* ← 5rem Abstand nach unten */
     left: 50%;
     transform: translateX(-50%);
@@ -17,17 +17,19 @@
 }
 
 .markdown-edit {
+    align-self: stretch;
     margin: 1rem;
     display: flex;
-    justify-content: space-between;
-    
+    justify-content: space-around;
+
 }
 
-.markdown-edit button{
-    width: 5rem;
-    padding:0.5rem;
+.markdown-edit button {
+    width: 8rem;
+    padding: 0.5rem;
     background-color: white;
-    border-radius:5px;
+    color: var(--color-background);
+    border-radius: 5px;
     cursor: pointer;
 }
 
@@ -36,9 +38,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-   
-   width: 90%;
-   flex: 1;
+
+    width: 90%;
+    flex: 1;
     gap: 1rem;
 }
 
@@ -46,9 +48,24 @@
 
 
 .markdown-container textarea {
-     margin-top:1rem;
+    margin-top: 1rem;
     padding: 1rem;
     width: 100%;
     height: 85%;
 }
 
+
+
+.saveButton {
+
+    display: flex;
+    justify-content: center;
+}
+ .saveButton button{
+    margin: 1rem;
+    padding: 1rem;
+    background-color: white;
+    color: var(--color-background);
+    border-radius: 5px;
+    cursor: pointer;
+}

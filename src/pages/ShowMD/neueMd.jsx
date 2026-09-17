@@ -1,14 +1,15 @@
 
+import Erfolgsmeldung from '../../components/erfolgsmeldung';
 import './showMd.css'
 
-export default function NeueMd({ mdDateiSichtbar, onClose,onCreate,erfolgsmeldung }) {
+export default function NeueMd({ mdDateiSichtbar, onClose, onCreate, erfolgsmeldung }) {
 
     const handleCreate = (e) => {
         e.preventDefault();
         const formData = new FormData(e.target);
         let text = formData.get("Text");
         let name = formData.get('neuerName')
-      onCreate(name,text)
+        onCreate(name, text)
 
     }
 
@@ -24,16 +25,16 @@ export default function NeueMd({ mdDateiSichtbar, onClose,onCreate,erfolgsmeldun
                             <input
                                 type="text"
                                 name="neuerName"
-                                placeholder ="Name der Datei" />
+                                placeholder="Name der Datei" />
 
-                                  {erfolgsmeldung && (
-                                <div> <p> Erfolgreich gespeichert</p></div>
+                            {erfolgsmeldung && (
+                                <Erfolgsmeldung />
                             )}
                             <button type="submit">Speichern</button>
 
 
                         </div>
-                       
+
                         <textarea
                             name="Text"
                             autoFocus

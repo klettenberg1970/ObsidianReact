@@ -68,6 +68,7 @@ export default function Start() {
     const data = await obsidianObjekt.updateMdDatei(text, id)
     if (data.message) {
       SetErfolgsmeldung(true)
+      setTimeout(() => handleCloseMdDatei(), 3000); 
     }
 
   }

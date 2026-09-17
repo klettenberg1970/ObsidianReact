@@ -1,0 +1,45 @@
+.markdown{
+  background-color: white;
+  color:var(--color-background);
+  margin:1rem;
+  border-radius:5px;
+  width: 90%;
+  
+   }
+
+
+
+.markdown h1,h2,h3, h4,p , ol,ul,li ,a{
+  padding:1rem;
+}
+
+.markdown a {
+  display: inline-block;  /* ← Das brauchst du */
+  margin: 0.5rem;         /* ← Funktioniert jetzt */
+  padding: 0.5rem 1rem;
+  background-color: white;
+  color: blue;
+  text-decoration: underline;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.markdown a:hover {
+  color: darkblue;
+}
+
+.markdown p {
+  white-space: pre-wrap;
+}
+
+.markdown ul,
+.markdown ol {
+  margin-left: 1rem;
+}
+
+.markdown-internerLink{
+
+  color:black;
+  cursor: pointer;
+  text-decoration: underline;
+}
