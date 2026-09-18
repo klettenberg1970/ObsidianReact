@@ -1,21 +1,31 @@
-.markdown{
+.markdown {
   background-color: white;
-  color:var(--color-background);
-  margin:1rem;
-  border-radius:5px;
+  color: var(--color-background);
+  margin: 1rem;
+  border-radius: 5px;
   width: 90%;
-  
-   }
+
+}
 
 
 
-.markdown h1,h2,h3, h4,p , ol,ul,li ,a{
-  padding:1rem;
+.markdown h1,
+h2,
+h3,
+h4,
+p,
+ol,
+ul,
+li,
+a {
+  padding: 1rem;
 }
 
 .markdown a {
-  display: inline-block;  /* ← Das brauchst du */
-  margin: 0.5rem;         /* ← Funktioniert jetzt */
+  display: inline-block;
+  /* ← Das brauchst du */
+  margin: 0.5rem;
+  /* ← Funktioniert jetzt */
   padding: 0.5rem 1rem;
   background-color: white;
   color: blue;
@@ -36,9 +46,33 @@
   margin-left: 1rem;
 }
 
-.markdown-internerLink{
+.markdown-internerLink {
 
-  color:black;
+  color: black;
   cursor: pointer;
   text-decoration: underline;
+}
+
+.markdown hr {
+  border: none;
+  border-top: 1px solid #ccc;
+  margin: 1rem 0;
+}
+
+.markdown table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+
+.markdown td,
+.markdown th {
+  border: 1px solid #ccc;
+  padding: 8px;
+}
+
+.markdown code {
+  background: #f4f4f4;
+  padding: 2px 6px;
+  border-radius: 4px;
 }
