@@ -1,5 +1,5 @@
 
-export default function StartButtons({ handleOrdner, onNew }) {
+export default function StartButtons({ handleOrdner, onNew, onDateiTransfer }) {
 
   return (
     <div className='startButtons'>
@@ -11,6 +11,7 @@ export default function StartButtons({ handleOrdner, onNew }) {
       <button onClick={handleOrdner}>Unsortiert</button>
 
       <button className="neuButton" onClick={onNew}> NEU</button>
+      <button onClick={onDateiTransfer}>Dateitransfer</button>
     </div>
   )
 }

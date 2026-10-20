@@ -82,4 +82,24 @@ export class Obsidian {
     return data
   }
 
+async fileTransfer(datei, name) {
+    const API = await this.apiPromise;
+
+    // 1. FormData-Objekt erstellen
+    const formData = new FormData();
+    
+    // 2. Datei und Name anhängen (Schlüssel 'datei' und 'customName' wie im Backend!)
+    formData.append('datei', datei);
+    formData.append('customName', name);
+
+    // 3. Fetch-Aufruf ohne Content-Type Header!
+    const response = await fetch(`${API}/api/v1/obsidian/speichern`, {
+        method: 'POST',
+        body: formData,
+    });
+
+    const data = await response.json();
+    return data;
+}
+
 }

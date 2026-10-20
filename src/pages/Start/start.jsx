@@ -6,6 +6,7 @@ import StartButtons from './startButtons.jsx';
 import ShowDateien from '../ShowDateien/alleDateien.jsx';
 import ShowMd from '../ShowMD/showMd.jsx';
 import NeueMd from '../ShowMD/neueMd.jsx';
+import Filetransfer from '../Filetransfer/filetransfer.jsx';
 import './start.css';
 
 export default function Start() {
@@ -16,7 +17,8 @@ export default function Start() {
   const [loading, setLoading] = useState(false);
   const [mdId, setMdId] = useState('');
   const [createNewDatei, SetCreateNewDatei] = useState(false);
-  const [erfolgsmeldung, SetErfolgsmeldung] = useState(false)
+  const [erfolgsmeldung, SetErfolgsmeldung] = useState(false);
+  const [dateitransfer,SetDateitransfer] = useState(false)
 
 
 
@@ -81,6 +83,30 @@ export default function Start() {
     setMdDatei(null);
   }
 
+  const handleDateiTransfer = () =>{
+        setOrdnerInhalt({});
+        SetDateitransfer(true);
+   
+  }
+
+ const handleTransferComplete = async (formData) => {
+    SetDateitransfer(false);
+
+    console.log('--- Elternkomponente: Upload startet ---');
+
+    // 1. Die Werte aus dem FormData-Objekt holen
+    const datei = formData.get('datei');
+    const name = formData.get('customName');
+
+    console.log('Datei:', datei);
+    console.log('Name:', name);
+
+    // 2. Die Variablen an deine Klasse übergeben
+    const obsidianObjekt = new Obsidian();
+    const data = await obsidianObjekt.fileTransfer(datei, name);
+    console.log(data);
+};
+
   return (
     <div className="start-container">
 
@@ -95,7 +121,8 @@ export default function Start() {
 
       <StartButtons
         handleOrdner={handleOrdner}
-        onNew={handleNew} />
+        onNew={handleNew}
+        onDateiTransfer ={handleDateiTransfer} />
 
       {/* 📌 Loading-Anzeige NUR wenn loading = true */}
       {loading && (
@@ -122,6 +149,9 @@ export default function Start() {
           erfolgsmeldung={erfolgsmeldung}
         />)}
 
+{dateitransfer && (
+        <Filetransfer onTransfer={handleTransferComplete} />
+      )}
 
       {/* <pre>{JSON.stringify(ordnerInhalt, null, 2)}</pre> */}
     </div>
