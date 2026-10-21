@@ -104,6 +104,10 @@ export default function Start() {
     // 2. Die Variablen an deine Klasse übergeben
     const obsidianObjekt = new Obsidian();
     const data = await obsidianObjekt.fileTransfer(datei, name);
+    if(data?.success){
+        SetErfolgsmeldung(true);
+        setTimeout(() => SetErfolgsmeldung(false), 3000); 
+    }
     console.log(data);
 };
 

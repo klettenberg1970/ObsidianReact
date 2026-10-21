@@ -1,12 +1,49 @@
-
-.filetransfer-container{
+.filetransfer-container {
     width: 50%;
-    margin:auto;
+    margin: auto;
+    display: flex;
+    flex-direction: column; /* Sorgt für die Reihenfolge untereinander */
+    justify-content: center;
+    align-items: center;    /* Zentriert die Elemente horizontal */
+    border: 2px solid var(--color-secondary);
+    padding: 1rem;
+    gap: 1rem;              /* Abstand zwischen den Elementen */
 }
 
-.filetransfer-container form{
-    display:flex;
+.filetransfer-container form {
+    display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    gap: 1rem;
+    width: 100%; /* Damit die Inputs die volle Breite des Containers nutzen können */
+}
+
+.filetransfer-container input{
+    width: 50%; /* Optional: Alle Felder gleich breit */
+    margin:auto;
+     border: 1px solid #ccc;     /* Rahmen */
+    border-radius: 6px;         /* Abgerundete Ecken */
+    outline: none; 
+    padding:1rem;
+    
+}
+
+.filetransfer-container button{
+     width: 7rem;
+     margin:auto;
+     margin-top:2rem;
+    background-color: var(--color-secondary);
+    color: white;
+    padding: 1rem;
+    border: none;
+    border-radius: 5px;
+    font-weight:bold;
+    cursor: pointer;
+}
+
+
+.filetransfer-container hr{
+     border: none; 
+    background-color:var(--color-secondary);
+    color:var(--color-secondary);
+    height: 2px;
 }
