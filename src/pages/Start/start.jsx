@@ -7,6 +7,7 @@ import ShowDateien from '../ShowDateien/alleDateien.jsx';
 import ShowMd from '../ShowMD/showMd.jsx';
 import NeueMd from '../ShowMD/neueMd.jsx';
 import Filetransfer from '../Filetransfer/filetransfer.jsx';
+import Erfolgsmeldung from '../../components/erfolgsmeldung';
 import './start.css';
 
 export default function Start() {
@@ -18,6 +19,7 @@ export default function Start() {
   const [mdId, setMdId] = useState('');
   const [createNewDatei, SetCreateNewDatei] = useState(false);
   const [erfolgsmeldung, SetErfolgsmeldung] = useState(false);
+   const [fehlermeldung, setFehlermeldung] = useState(false);
   const [dateitransfer,SetDateitransfer] = useState(false)
 
 
@@ -89,27 +91,30 @@ export default function Start() {
    
   }
 
- const handleTransferComplete = async (formData) => {
-    SetDateitransfer(false);
+   const handleTransferComplete = async (formData) => {
+        SetDateitransfer(false);
+    
+        const datei = formData.get('datei');
+        const name = formData.get('customName');
+    
+        const obsidianObjekt = new Obsidian();
+        const data = await obsidianObjekt.fileTransfer(datei, name);
+    
+        if (data?.success) {
+            SetErfolgsmeldung(true);
+            setTimeout(() => {
+                SetErfolgsmeldung(false);
+            }, 3000);
+        } else if (data?.message === false || !data?.success) {
+            setFehlermeldung(true);
+            setTimeout(() => {
+                setFehlermeldung(false);
+            }, 3000);
+        }
+    
+        console.log(data);
+    };
 
-    console.log('--- Elternkomponente: Upload startet ---');
-
-    // 1. Die Werte aus dem FormData-Objekt holen
-    const datei = formData.get('datei');
-    const name = formData.get('customName');
-
-    console.log('Datei:', datei);
-    console.log('Name:', name);
-
-    // 2. Die Variablen an deine Klasse übergeben
-    const obsidianObjekt = new Obsidian();
-    const data = await obsidianObjekt.fileTransfer(datei, name);
-    if(data?.success){
-        SetErfolgsmeldung(true);
-        setTimeout(() => SetErfolgsmeldung(false), 3000); 
-    }
-    console.log(data);
-};
 
   return (
     <div className="start-container">
@@ -153,9 +158,17 @@ export default function Start() {
           erfolgsmeldung={erfolgsmeldung}
         />)}
 
-{dateitransfer && (
+ {dateitransfer && (
         <Filetransfer onTransfer={handleTransferComplete} />
-      )}
+    )}
+    
+    {erfolgsmeldung && <Erfolgsmeldung />}
+
+       {fehlermeldung && (
+        <div style={{ color: 'red', fontWeight: 'bold', margin: '10px 0', textAlign: 'center' }}>
+            <h3>Upload hat nicht geklappt</h3>
+        </div>
+    )}
 
       {/* <pre>{JSON.stringify(ordnerInhalt, null, 2)}</pre> */}
     </div>
