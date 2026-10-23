@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Obsidian } from '../../utils/obsidianClass.js'
+import { Obsidian } from '../../utils/googleDriveClass.js'
 import { ordnerId } from './getOrdnerID';
 
 import StartButtons from './startButtons.jsx';
