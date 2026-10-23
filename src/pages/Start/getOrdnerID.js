@@ -1,5 +1,5 @@
 
-import {Obsidian} from '../../utils/obsidianClass.js'
+import { Obsidian } from '../../utils/googleDriveClass.js'
 
 export const ordnerId = async(name) =>{
     const obsidianObjekt = new Obsidian();
