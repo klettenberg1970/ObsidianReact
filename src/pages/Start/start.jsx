@@ -27,6 +27,7 @@ export default function Start() {
   const handleOrdner = async (event) => {
     setLoading(true);
     setOrdnerInhalt({});
+     SetDateitransfer(false);
     const id = await ordnerId(event.target.textContent);
     const obsidianObjekt = new Obsidian();
     const data = await obsidianObjekt.getKompletteDateien(id);
@@ -35,7 +36,7 @@ export default function Start() {
   }
 
   const handleMdAuswahl = async (id) => {
-
+ SetDateitransfer(false);
     setMdDatei({});
     setMdId(id)
     setLoading(true);
@@ -50,7 +51,8 @@ export default function Start() {
     setOrdnerInhalt({});
     setMdDatei({});
     SetCreateNewDatei(true);
-    setMdDateiSichtbar(true)
+    setMdDateiSichtbar(true);
+     SetDateitransfer(false);
   }
 
 
@@ -83,6 +85,7 @@ export default function Start() {
     SetCreateNewDatei(false);
     SetErfolgsmeldung(false);
     setMdDatei(null);
+     SetDateitransfer(false);
   }
 
   const handleDateiTransfer = () =>{
@@ -125,6 +128,7 @@ export default function Start() {
         onClick={() => {
           setOrdnerInhalt({});
           setMdDatei({});
+           SetDateitransfer(false);
         }}
       />
 
